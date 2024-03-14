@@ -33,8 +33,8 @@ export default function Page() {
       action={action}
       onSubmit={(e) => {
         e.preventDefault();
-        form.handleSubmit(() => {
-          formRef.current?.submit();
+        return form.handleSubmit(() => {
+          action(new FormData(formRef.current!));
         })(e);
       }}
     >
